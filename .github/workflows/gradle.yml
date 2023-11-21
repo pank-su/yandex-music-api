@@ -15,7 +15,7 @@ on:
   workflow_call:
 env:
   # Setting an environment variable with the value of a configuration variable
-  env_var: ${{ vars.token }}
+  token: ${{ vars.token }}
 
 permissions:
   contents: read
