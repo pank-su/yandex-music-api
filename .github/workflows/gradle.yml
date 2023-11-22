@@ -48,10 +48,12 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+    - name: Install curllib
+      if: ${{ matrix.os == 'ubuntu-latest' }}
+      run: sudo apt-get install libcurl4-openssl-dev
     - name: Build with Gradle
       uses: gradle/gradle-build-action@ce999babab2de1c4b649dc15f0ee67e6246c994f
       env:
-        token: ${{ vars.TOKEN }}
+        token: ${{ secrets.token }}
       with:
-        arguments: ${{ matrix.target }}
-
+        arguments: ${{ matrix.target }} --scan
