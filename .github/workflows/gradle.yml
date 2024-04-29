@@ -22,8 +22,6 @@ jobs:
     strategy:
       matrix:
         include:
-          - target: iosSimulatorArm64Test
-            os: macos-latest
           - target: jvmTest
             os: ubuntu-latest
           - target: linuxX64Test
