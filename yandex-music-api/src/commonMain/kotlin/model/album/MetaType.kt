@@ -18,5 +18,6 @@ enum class MetaType {
     AudioBook,
 
     @SerialName("asmr")
-    ASMR
+    ASMR,
+    noise
 }

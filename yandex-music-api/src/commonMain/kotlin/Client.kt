@@ -92,7 +92,9 @@ class Client {
 
     suspend inline fun <reified T> HttpResponse.deserialize(): T {
 
-        val body = this.bodyAsText().replace("/\\", "").replace("\\ ", "")
+        val body = this.bodyAsText().replace("/\\", "").replace("\\ ", "").replace(Regex("\\\\[a-zA-ZА-Яа-я]+"),){
+           "\\" + it.value
+        }
 
         return jsonSettings.decodeFromString<T>(body)
     }

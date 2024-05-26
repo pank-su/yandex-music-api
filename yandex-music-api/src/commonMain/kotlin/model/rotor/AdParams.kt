@@ -1,7 +1,7 @@
 package model.rotor
 
 import kotlinx.serialization.Serializable
-import model.album.GenreType
+import model.genre.GenreType
 import utils.IntOrStringSerializer
 
 @Serializable
