@@ -96,6 +96,7 @@ class Client {
 
     suspend inline fun <reified T> HttpResponse.deserialize(): T {
 
+
         // escape all stupid chars
         val body = this.bodyAsText()/*.replace(Regex("\\\\[a-zA-ZА-Яа-я]+")) { "\\" + it.value }*/
 

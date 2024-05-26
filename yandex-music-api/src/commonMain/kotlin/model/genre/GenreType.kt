@@ -1,4 +1,4 @@
-package model.album
+package model.genre
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -518,6 +518,8 @@ enum class GenreType {
     Soviet,
 
     @SerialName("fairytales")
-    FairyTales
+    FairyTales,
 
+    @SerialName("poetrygenre")
+    PoetryGenre
 }

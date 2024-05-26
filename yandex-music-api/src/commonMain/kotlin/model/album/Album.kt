@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 import model.Result
 import model.artist.Artist
 import model.cover.CoverSize
+import model.genre.GenreType
 import model.track.Options
 import model.track.Track
 
