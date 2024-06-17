@@ -10,7 +10,7 @@ ktor = "3.0.0-wasm2"
 kotlinx-corutines = "1.8.0"
 kotlinx-json = "1.6.3"
 logger = "2.0.13"
-xmlutil = "0.86.3"
+xmlutil = "0.90.1"
 hash = "0.5.1"
 io = "0.3.3"
 
