@@ -2,7 +2,7 @@
 agp = "8.2.0"
 getenv = "0.3.0"
 kotlin = "2.0.0"
-kotlinxDatetime = "0.6.0"
+kotlinxDatetime = "0.6.1"
 nexus-publish = "2.0.0-rc-1"
 android-minSdk = "24"
 android-compileSdk = "33"
