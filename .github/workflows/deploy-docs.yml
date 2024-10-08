@@ -28,10 +28,12 @@ jobs:
             MDBOOK_VERSION: 0.4.36
         steps:
             - uses: actions/checkout@v4
-            - uses: gradle/gradle-build-action@v3
+            - name: Setup Java
+              uses: actions/setup-java@v4
               with:
                   distribution: 'temurin'
                   java-version: 17
+            - uses: gradle/gradle-build-action@v3
             - name: generate docs
               run: "gradle :docs:dokkaGenerate"
             - name: Setup Pages
