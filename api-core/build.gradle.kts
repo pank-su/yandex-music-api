@@ -58,7 +58,7 @@ kotlin {
                 implementation(libs.md5)
                 kotlin("reflect")
 
-                implementation("org.kotlincrypto.macs:hmac-sha2:0.5.1")
+                implementation("org.kotlincrypto.macs:hmac-sha2:0.5.6")
             }
         }
         commonTest {
