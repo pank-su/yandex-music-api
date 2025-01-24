@@ -2,7 +2,7 @@
 name: Deploy dokka docs
 on:
     push:
-        branches: ["dokka-conf"] # TODO: когда закончу конфигурацию dokka, то заменю на `main`
+        branches: ["main"]
 
     workflow_dispatch:
 
