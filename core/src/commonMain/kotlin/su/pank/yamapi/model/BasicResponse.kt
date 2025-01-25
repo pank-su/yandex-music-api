@@ -1,8 +1,10 @@
-package model
+package su.pank.yamapi.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-
+import model.Error
+import model.InvocationInfo
+import model.handleError
 
 
 @Serializable
@@ -14,9 +16,8 @@ data class BasicResponse<T>(
     val result: T
         get() {
             if (_result == null) {
-                errorTypeToException[_error?.type]!!(_error?.message ?: "Неизвестна ошибка")
-                throw Throwable()
+                _error?.let {   handleError(_error) } ?: throw Exception()
             }
-            return _result
+            return _result!!
         }
 }

@@ -1,4 +1,4 @@
-package model.search
+package su.pank.yamapi.model.search
 
 
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -12,14 +12,17 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 import kotlinx.serialization.encoding.decodeStructure
 import kotlinx.serialization.serializer
-import model.Video
-import model.album.Album
-import model.artist.Artist
-import model.playlist.Playlist
 import su.pank.yamapi.account.model.User
 import su.pank.yamapi.landing.model.Podcast
+import su.pank.yamapi.model.Artist
+import su.pank.yamapi.model.Playlist
+import su.pank.yamapi.model.Video
+import su.pank.yamapi.model.album.Album
 import su.pank.yamapi.track.model.TrackData
 
+/**
+ * Десериализация лучшего подходящего ответа в зависимости от полученного типа
+ */
 object BestSerializer : KSerializer<Best> {
     override val descriptor: SerialDescriptor
         get() = buildClassSerialDescriptor("BlockEntity") {

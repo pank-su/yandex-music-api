@@ -1,12 +1,12 @@
-package model.search
+package su.pank.yamapi.model.search
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import model.Video
-import model.album.Album
-import model.artist.Artist
-import model.playlist.Playlist
 import su.pank.yamapi.account.model.User
+import su.pank.yamapi.model.Artist
+import su.pank.yamapi.model.Playlist
+import su.pank.yamapi.model.Video
+import su.pank.yamapi.model.album.Album
 import su.pank.yamapi.track.model.TrackData
 import su.pank.yamapi.track.model.supplement.Clip
 
@@ -35,6 +35,7 @@ data class Search(
     var type: QueryType = QueryType.All
     internal var page: Int = 0
 
+
     suspend fun getPage(page: Int): Search =
         TODO("Добавить это в entity")// client!!.search(query = query, isCorrect = isCorrect ?: true, type, page)
 
@@ -42,3 +43,27 @@ data class Search(
 
     suspend fun prevPage(): Search = getPage(page - 1)
 }
+
+
+@Serializable(with = BestSerializer::class)
+data class Best(val type: QueryResponseType, val result: Any)
+
+
+
+/**
+ * Результат поиска различный от выбранного запроса. Этот dataclass упрощает обрабатывать ответ в [Search]
+ */
+@Serializable
+data class SearchResult<T>(val total: Int, val perPage: Int, val order: Int, val results: List<T>)
+
+enum class QueryType {
+    All,
+    Artist,
+    User,
+    Album,
+    Playlist,
+    Track,
+    Podcast
+}
+
+

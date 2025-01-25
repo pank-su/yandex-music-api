@@ -1,9 +1,9 @@
-package model.album
+package su.pank.yamapi.model.album
 
 import kotlinx.datetime.Instant
 import kotlinx.serialization.Serializable
-import model.artist.Artist
 import model.cover.CoverSize
+import su.pank.yamapi.model.Artist
 import su.pank.yamapi.track.model.TrackData
 import track.model.Options
 
@@ -17,7 +17,7 @@ data class Album(
     val releaseDate: Instant? = null,
     val coverUri: String? = null,
     val ogImage: String,
-    val genre: GenreType? = null,
+    val genre: String? = null,
     val trackCount: Int,
     val likesCount: Int? = null,
     val recent: Boolean,
@@ -38,3 +38,15 @@ data class Album(
         if (coverUri != null) "https://${coverUri.replace("%%", size.toString())}" else null
     fun getOgImage(size: CoverSize) = "https://${ogImage.replace("%%", size.toString())}"
 }
+
+
+@Serializable(with = LabelSerializer::class)
+data class Label(val id: Int, val name: String)
+
+/**
+ * Позиция трека в альбоме
+ *
+ * @see Album
+ */
+@Serializable
+data class TrackPosition(val volume: Int, val index: Int)
